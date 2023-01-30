@@ -15,7 +15,7 @@ $user = members();
 
 <head>
     <meta charset="utf-8" />
-    <title>Profile | GNACC -  </title>
+    <title>Profile | OMNIBSIC -  </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -47,7 +47,7 @@ $user = members();
             <!-- Logo Light -->
             <a href="index-2.php" class="logo logo-light">
                 <span class="logo-lg">
-                    <img src="assets/images/logo.png" alt="logo" height="22">
+                    <img src="assets/images/omni.jpeg" alt="logo" height="22">
                 </span>
                 <span class="logo-sm">
                     <img src="assets/images/logo-sm.png" alt="small logo" height="22">
@@ -117,7 +117,7 @@ $user = members();
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">GNACC</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">OMNIBSIC</a></li>
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Pages</a></li>
                                         <li class="breadcrumb-item active">Profile</li>
                                     </ol>
@@ -184,7 +184,7 @@ $user = members();
                     <canvas id="canvas" style="border:1px solid #d3d3d3;"></canvas>
 
                     <input id="name" type='hidden' value="<?php echo $user['name']; ?>">
-                            <input id="district" type='hidden' value="<?php echo $user['gnaccid']; ?>">
+                            <input id="district" type='hidden' value="<?php echo $user['OMNIBSICid']; ?>">
                             <input id="dateadded" type='hidden' value="<?php echo $user['expiry']; ?>">
 
                     

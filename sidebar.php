@@ -304,19 +304,58 @@
         </a>
     </li>
     <li class="side-nav-item">
-        <a href="users.php"  class="side-nav-link">
-            <i class="uil-globe"></i>
+        <a href="dashboard_user.php"  class="side-nav-link">
+        <i class="uil-home-alt"></i>
             <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
-            <span> Counsellors</span>
+            <span> Specific </span>
         </a>
     </li>
     <li class="side-nav-item">
-        <a href="upload_counsellors.php"  class="side-nav-link">
+        <a href="users.php"  class="side-nav-link">
             <i class="uil-globe"></i>
             <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
-            <span> Upload Users</span>
+            <span> Donors</span>
         </a>
     </li>
+
+    <li class="side-nav-item">
+        <a href="staff.php"  class="side-nav-link">
+            <i class="uil-globe"></i>
+            <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
+            <span>Staff</span>
+        </a>
+    </li>
+
+    <li class="side-nav-item">
+        <a href="add_staff.php"  class="side-nav-link">
+            <i class="uil-globe"></i>
+            <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
+            <span> Add Staff</span>
+        </a>
+    </li>
+
+    <li class="side-nav-item">
+        <a href="beneficiary.php"  class="side-nav-link">
+            <i class="uil-globe"></i>
+            <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
+            <span>Beneficiaries</span>
+        </a>
+    </li>
+
+    <li class="side-nav-item">
+        <a href="add-beneficiary.php"  class="side-nav-link">
+            <i class="uil-globe"></i>
+            <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
+            <span> Add Beneficiary</span>
+        </a>
+    </li>
+    <!-- <li class="side-nav-item">
+        <a href="upload_counsellors.php"  class="side-nav-link">
+            <i class="uil-globe"></i>
+            <span class="badge bg-secondary text-light float-end">New</span>
+            <span> Upload Users</span>
+        </a>
+    </li> -->
     <!-- <li class="side-nav-item">
         <a href="payment.php"  class="side-nav-link">
             <i class="uil-globe"></i>

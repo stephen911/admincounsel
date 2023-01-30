@@ -5,7 +5,7 @@
 <!-- Mirrored from coderthemes.com/hyper_2/modern/pages-logout.php by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 14 Nov 2022 09:19:09 GMT -->
 <head>
         <meta charset="utf-8" />
-        <title>Logout | GNACC -  </title>
+        <title>Logout | OMNIBSIC -  </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -34,7 +34,7 @@
                             <!-- Logo -->
                             <div class="card-header pt-4 pb-4 text-center bg-primary">
                                 <a href="index-2.php">
-                                    <span><img src="assets/images/logo.png" alt="logo" height="22"></span>
+                                    <span><img src="assets/images/omni.jpeg" alt="logo" height="22"></span>
                                 </a>
                             </div>
 
@@ -78,7 +78,7 @@
         <!-- end page -->
 
         <footer class="footer footer-alt">
-            2018 - <script>document.write(new Date().getFullYear())</script> © GNACC - Coderthemes.com
+            2018 - <script>document.write(new Date().getFullYear())</script> © OMNIBSIC - Coderthemes.com
         </footer>
         <!-- Vendor js -->
         <script src="assets/js/vendor.min.js"></script>

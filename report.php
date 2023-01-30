@@ -1,21 +1,12 @@
 <?php
 include 'functions.php';
-include 'yolkpay.php';
-$yolk = new YolkPay();
+// include 'yolkpay.php';
+// $yolk = new YolkPay();
+
 checker();
-$user = upmembers();
+$user = adminmembers();
 //  var_dump($_SESSION['id']);
-
-// if (isset($_POST['btnupdate'])) {
-//     extract($_POST);
-//     updateuser($id, $title, $name, $gender, $email, $contact, $telegram, $lincesed, $nameofschool, $region, $district, $foodpref, $heard);
-// }
-
-// // Yolk mailer
-// $mail = new Mail();
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en" data-layout-mode="detached" data-topbar-color="dark" data-sidenav-color="light" data-sidenav-user="true">
 
@@ -24,22 +15,19 @@ $user = upmembers();
 
 <head>
     <meta charset="utf-8" />
-    <title>Profile | OMNIBSIC - Payment</title>
+    <title>OmniBsic Donote - Report</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon2.ico">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
 
     <!-- Theme Config Js -->
     <script src="assets/js/hyper-config.js"></script>
 
     <!-- Icons css -->
     <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-
-    <!-- sweetalert -->
-    <link type="text/css" href="assets/css/sweetalert2.min.css" rel="stylesheet">
 
     <!-- App css -->
     <link href="assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="app-style" />
@@ -59,20 +47,20 @@ $user = upmembers();
             <!-- Logo Light -->
             <a href="dashboard.php" class="logo logo-light">
                 <span class="logo-lg">
-                    <img src="assets/images/omni.jpeg" alt="logo" height="22">
+                    <img src="assets/images/logo.png" alt="logo" height="22">
                 </span>
                 <span class="logo-sm">
-                    <img src="assets/images/omni.jpeg" alt="small logo" height="22">
+                    <img src="assets/images/logo.png" alt="small logo" height="22">
                 </span>
             </a>
 
             <!-- Logo Dark -->
             <a href="dashboard.php" class="logo logo-dark">
                 <span class="logo-lg">
-                    <img src="assets/images/omni.jpeg" alt="dark logo" height="22">
+                    <img src="assets/images/logo.png" alt="dark logo" height="22">
                 </span>
                 <span class="logo-sm">
-                    <img src="assets/images/omni.jpeg" alt="small logo" height="22">
+                    <img src="assets/images/logo-dark-sm.png" alt="small logo" height="22">
                 </span>
             </a>
 
@@ -86,8 +74,8 @@ $user = upmembers();
                 <!-- Leftbar User -->
                 <div class="leftbar-user">
                     <a href="#">
-                        <img src="uploads/<?php echo $user['passport']; ?>" alt="user-image" height="42" class="rounded-circle shadow-sm">
-                        <span class="leftbar-user-name"><strong><?php echo $user['name']; ?></strong></span>
+                        <img src="assets/images/omni.png" alt="user-image" height="42" class="rounded-circle shadow-sm">
+                        <span class="leftbar-user-name"><strong><?php echo $user['first_name']; ?></strong></span>
                     </a>
                 </div>
 
@@ -116,147 +104,171 @@ $user = upmembers();
         <!-- ============================================================== -->
         <!-- Start Page Content here -->
         <!-- ============================================================== -->
-
         <div class="content-page">
-            <div class="content">
+                <div class="content">
 
-                <!-- Start Content-->
-                <div class="container-fluid">
+                    <!-- Start Content-->
+                    <div class="container-fluid">
 
-                    <!-- start page title -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="page-title-box">
-                                <div class="page-title-right">
-                                    <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="#">OMNIBSIC</a></li>
-                                        <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                                        <li class="breadcrumb-item active">Payment</li>
-                                    </ol>
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box">
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">GNACC</a></li>
+                                            <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
+                                            <li class="breadcrumb-item active">Report</li>
+                                        </ol>
+                                    </div>
+                                    <h4 class="page-title">Report</h4>
                                 </div>
-                                <h4 class="page-title">Payment</h4>
                             </div>
                         </div>
-                    </div>
-                    <!-- end page title -->
+                        <!-- end page title -->
 
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
 
+                                        <!-- Report Logo-->
+                                        <div class="clearfix">
+                                            <div class="float-start mb-3">
+                                                <img src="assets/images/logo.png" alt="dark logo" height="42">
+                                            </div>
+                                            <div class="float-end">
+                                                <h4 class="m-0 d-print-none">Report</h4>
+                                            </div>
+                                        </div>
 
-                    <!-- Form row -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="header-title">Payment </h4>
-                                    <p class="text-muted font-14">
-                                        Add Payment Info
-                                    </p>
-
-                                    <!-- <ul class="nav nav-tabs nav-bordered mb-3">
-                                        <li class="nav-item">
-                                            <a href="#form-row-preview" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">
-                                                Preview
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#form-row-code" data-bs-toggle="tab" aria-expanded="true" class="nav-link">
-                                                Code
-                                            </a>
-                                        </li>
-                                    </ul>  -->
-                                    <!-- end nav -->
-                                    <div class="tab-content">
-                                        <div class="tab-pane show active" id="form-row-preview">
-                                            <form action="dashboard.php" novalidate method="get" class="pay" enctype='multipart/form-data'>
-                                              
+                                        <!-- Report Detail-->
+                                        <div class="row">
+                                            <div class="col-sm-6">
                                                 
-
-                                                <div class="mb-3">
-                                                    <label for="emailaddress" class="form-label">Name</label>
-                                                    <input class="form-control" type="text" id="name" required placeholder="Enter your phone Number" name="name" value="<?php echo ($user['name'] == '') ? '' : $user['name']; ?>">
+                                                <div class="float-end mt-3">
+                                                    <p><b>Hello, <?php echo $user['first_name']; ?></b></p>
+                                                    <p class="text-muted font-13">Thank you!. Please Go ahead and download your <a href="cert.php"> certificate </a>, and do not hesitate to contact us with any questions.</p>
                                                 </div>
+            
+                                            </div><!-- end col -->
+                                            <div class="col-sm-4 offset-sm-2">
+                                                <div class="mt-3 float-sm-end">
+                                                    <!-- <p class="font-13"><strong>Transaction Date: </strong> <span class="float-end">&nbsp;&nbsp;&nbsp; </?//php  transactionsdate(); ?></span></p> -->
 
-                                                <div class="mb-3">
-                                                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                                    <?php if($user['paystatus'] == "paid") {
+                                                    echo '<p class="font-13"><strong>Transaction Status: </strong> <span class="badge bg-success float-end">Paid</span></p>';
 
-                                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email"  value="<?php echo ($user['email'] == '') ? '' : $user['email']; ?>">
-                                                    <input id="email" type="hidden" placeholder="Name to be shown on Certificate" value="<?php echo  $user['id']; ?>" class="form-control" name="id">
+                                                    }else{
+                                                        echo '<p class="font-13"><strong>Transaction Status: </strong> <span class="badge bg-danger float-end">N/A</span></p>';
 
-                                                    <!-- <small id="emailHelp" class="form-text text-muted">Please make sur you remember the password to the email you are providing</small> -->
+                                                    }
+                                                    
+                                                    ?>
+                                                    <p class="font-13"><strong>Transaction No: </strong> <span class="float-end"><//?php  ReportId(); ?></span></p>
                                                 </div>
-
-
-<div class="mb-3">
-                                                    <label for="example-select" class="form-label">Counsellor Membership Type</label>
-                                                    <select class="form-select" id="student-select" name="membership">
-                                                    <option selected value="<?php echo ($user['membership'] == '') ? '' : $user['membership']; ?>"><?php echo ($user['membership'] == '') ? 'Select Membership' : $user['membership']; ?></option>
-
-                                                        <option value="250">Certificated Counsellor</option>
-                                                        <option value="300">Associate Counsellor</option>
-
-
-                                                        <option value="150">Student - Counsellor</option>
-                                                        <option value="150">Renewal</option>
-
-
-
-
-                                                    </select>
+                                            </div><!-- end col -->
+                                        </div>
+                                        <!-- end row -->
+            
+                                        <div class="row mt-6">
+                                            <div class="col-sm-6">
+                                                <h6>Billing Info</h6>
+                                                <address>
+                                                    <?php echo $user['name'] ?><br>
+                                                    <?php echo $user['contact'] ?><br>
+                                                    <!-- San Franisco, CA 94107<br>
+                                                    <abbr title="Phone">P:</abbr> (123) 456-7890c -->
+                                                </address>
+                                            </div> <!-- end col-->
+            
+                                            <!-- <div class="col-sm-4">
+                                                <h6>Shipping Address</h6>
+                                                <address>
+                                                    Cooper Hobson<br>
+                                                    795 Folsom Ave, Suite 600<br>
+                                                    San Francisco, CA 94107<br>
+                                                    <abbr title="Phone">P:</abbr> (123) 456-7890
+                                                </address>
+                                            </div>  -->
+            
+                                            <div class="col-sm-6">
+                                                <div class="text-sm-end">
+                                                    <img src="assets/images/barcode.png" alt="barcode-image" class="img-fluid me-2" />
                                                 </div>
+                                            </div> <!-- end col-->
+                                        </div>    
+                                        <!-- end row -->        
+    
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="table-responsive">
+                                                    <table class="table mt-4">
+                                                        <thead>
+                                                        <tr><th>#</th>
+                                                            <th>Membership Type</th>
+                                                            <th>Transaction Date</th>
+                                                            <th>Transaction ID</th>
+                                                            <th>Amount</th>
+                                                            <th class="text-end">Total</th>
+                                                        </tr></thead>
+                                                        <tbody>
+                                                        
+                                                       
+                                                        <?php transactions($_SESSION['id']); ?>
+                                                       
+                                                        </tbody>
+                                                    </table>
+                                                </div> <!-- end table-responsive-->
+                                            </div> <!-- end col -->
+                                        </div>
+                                        <!-- end row -->
 
-                                                <!-- <div class="mb-3">
-                                                    <label for="example-select" class="form-label">How did you hear/Know of this association</label>
-                                                    <select class="form-select" id="example-select" name="heard">
-                                                        <option selected></option>
-                                                        <option>OMNIBSIC Website</option>
-                                                        <option>Facebook</option>
-                                                        <option>WhatsApp</option>
-                                                        <option>Instagram</option>
-                                                        <option>Friend</option>
-                                                        <option>News Papers</option>
-                                                        <option>TUCEE Institute of Counselling and Technology Website</option>
-
-
-                                                    </select>
-                                                </div> -->
-
-
-                                                
-
-
-
-                                                <!-- <div class="mb-3">
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="checkbox-signup">
-                                        <label class="form-check-label" for="checkbox-signup">I accept <a href="#" class="text-muted">Terms and Conditions</a></label>
-                                    </div>
-                                </div> -->
-
-                                                <div class="mb-3 text-center">
-                                                    <button class="btn btn-primary" type="submit"> Add Payment </button>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="clearfix pt-3">
+                                                    <h6 class="text-muted">Contact Us:</h6>
+                                                    <small>
+                                                        +233 24 499 6991
+                                                    </small>
                                                 </div>
+                                            </div> <!-- end col -->
+                                            <div class="col-sm-6">
+                                                <div class="float-end mt-3 mt-sm-0">
+                                                    <p><b>Sub-total:</b> <span class="float-end"><?php  ?></span></p>
+                                                    <!-- <p><b>VAT (12.5):</b> <span class="float-end">$515.00</span></p> -->
+                                                    <h3><?php echo 'Gh₵ '. transactionstotal(); ?></h3>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div> <!-- end col -->
+                                        </div>
+                                        <!-- end row-->
+    
+                                        <div class="d-print-none mt-4">
+                                            <div class="text-end">
+                                                <a href="javascript:window.print()" class="btn btn-primary"><i class="mdi mdi-printer"></i> Print</a>
+                                                <!-- <a href="javascript: void(0);" class="btn btn-info">Submit</a> -->
+                                            </div>
+                                        </div>   
+                                        <!-- end buttons -->
 
-                                            </form>
-                                        </div> <!-- end preview-->
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card -->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- end row -->
+                        
+                    </div> <!-- container -->
 
-                                        <!-- end preview code-->
-                                    </div> <!-- end tab-content-->
+                </div> <!-- content -->
 
-                                </div> <!-- end card-body -->
-                            </div> <!-- end card-->
-                        </div> <!-- end col -->
-                    </div>
-                    <!-- end row -->
+                <!-- Footer Start -->
+                <?php include "footer.php" ?>
+                <!-- end Footer -->
 
-                </div> <!-- container -->
+            </div>
 
-            </div> <!-- content -->
-
-            <!-- Footer Start -->
-            <?php include "footer.php" ?>
-            <!-- end Footer -->
-
-        </div>
+       
 
         <!-- ============================================================== -->
         <!-- End Page content -->
@@ -766,15 +778,8 @@ $user = upmembers();
     <!-- Profile Demo App js -->
     <script src="assets/js/pages/demo.profile.js"></script>
 
-    <script src="assets/js/sweetalert2.all.min.js"></script>
-    <!-- <script src="assets/js/regions.js"></script>
-
-    <script src="assets/js/view.js"></script> -->
-
     <!-- App js -->
     <script src="assets/js/app.min.js"></script>
-    <script src="processor.js"></script>
-
 
 </body>
 

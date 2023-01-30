@@ -245,32 +245,28 @@ $user = adminmembers();
 
                                                     echo '<tr>
                             <th>ID</th>
-                            <th>Donor Name</th>
-                            <th>Staff Name</th>
+                            <th>Name</th>
+                            
                             <th>Contact</th>
-                            <th>Payment Method</th>
-                            <th>Currency</th>
-                            <th>Amount</th>
-                            <th>Pay Date</th>
+                            <th>Image</th>
+                           
                             
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>';
-                                                    echo registered();
+                                                    echo bene();
                                                     echo '
                     </tbody>
                     <tfoot>
                         <tr>
                         <th>ID</th>
-                        <th>Donor Name</th>
-                        <th>Staff Name</th>
+                        
+                        <th>Name</th>
                         <th>Contact</th>
-                        <th>Payment Method</th>
-                        <th>Currency</th>
-                        <th>Amount</th>
-                        <th>Pay Date</th>
+                        <th>Image</th>
+                        
                             <th>Edit</th>
                             <th>Delete</th>
                             

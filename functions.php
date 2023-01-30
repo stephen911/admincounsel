@@ -1,10 +1,5 @@
 <?php
 
-// Developer : Frederick  Ennin
-// Email : kpin463@gmail.comin
-// started on Saturday11 June,2022
-// github :https://github.com/dollarstir
-
 function db()
 {
     return  'starter.php';
@@ -60,7 +55,7 @@ function members()
     // session_start();
     $id = $_SESSION['id'];
 
-    $d = mysqli_query($conn, "SELECT * FROM cmd WHERE id ='$id'");
+    $d = mysqli_query($conn, "SELECT * FROM core_staffuser WHERE id ='$id'");
     $row = mysqli_fetch_array($d);
 
     return $row;
@@ -86,13 +81,43 @@ function upmembers()
     // $id = $_SESSION['id'];
     $id = $_GET['id'];
 
-    $d = mysqli_query($conn, "SELECT * FROM members WHERE id ='$id'");
+    $d = mysqli_query($conn, "SELECT * FROM cmd WHERE id ='$id'");
     $row = mysqli_fetch_array($d);
 
     return $row;
 }
 
-function updateuser($id, $name, $email, $tdate, $contact, $gender, $wnumber, $enumber, $address, $occupation, $mstatus, $region, $nationality, $edulevel, $area, $membership, $challenge, $color, $size, $school, $programme, $year)
+
+
+function updatestaff($id, $name, $email,  $contact, $pin, $bene)
+
+{
+    include 'starter.php';
+    // $id = $_GET['id'];
+    extract($_POST);
+    $up = mysqli_query($conn, "UPDATE core_staffuser SET username = '$name', email='$email', contact= '$contact', pin='$pin', bene_uid='$bene'   WHERE id='$id'  ");
+    if ($up) {
+        echo 'Updated Successfully';
+    } else {
+        echo 'Failed to update record . Try again';
+    }
+}
+
+
+function userstaff()
+{
+    include 'starter.php';
+    // session_start();
+    // $id = $_SESSION['id'];
+    $id = $_GET['id'];
+
+    $d = mysqli_query($conn, "SELECT * FROM core_staffuser WHERE id ='$id'");
+    $row = mysqli_fetch_array($d);
+
+    return $row;
+}
+
+function updateuser($id, $name,  $contact, $gender, $wnumber, $enumber, $address, $occupation, $mstatus, $region, $nationality, $edulevel, $area, $membership, $challenge, $color, $size, $school, $programme, $year)
 
 {
     include 'starter.php';
@@ -443,11 +468,11 @@ function disunconfstatsper($district)
 }
 
 
-function foodstats($district)
+function foodstats($bene)
 {
     include 'starter.php';
     // $id = $_GET['id'];
-    $c = mysqli_query($conn, "SELECT * FROM members WHERE district='$district' AND foodpref='Jollof with chicken'");
+    $c = mysqli_query($conn, "SELECT * FROM core_beneficiaries WHERE id='$bene' ");
     $count = mysqli_num_rows($c);
     echo '<h4 class="mb-0 text-success">' . $count . '</h4>';
     // if ($confiu) {
@@ -602,12 +627,12 @@ function sfoodstats($district)
     // }
 }
 
-function ssfoodstats($district)
+function ssfoodstats($bene)
 {
     include 'starter.php';
     // $id = $_GET['id'];
 
-    echo '<h4 class="card-title">Statistics for ' . $district . '</h4>';
+    echo '<h4 class="card-title">Statistics for ' . $bene . '</h4>';
     // if ($confiu) {
     //     echo 'Updated Successfully';
     // } else {
@@ -640,11 +665,62 @@ function register($name, $email, $password)
     }
 }
 
+function register1($name, $contact,)
+{
+  
+    include 'starter.php';
+
+
+	$filename = $_FILES["image"]["name"];
+	$tempname = $_FILES["image"]["tmp_name"];
+	$folder = "assets/images/" . $filename;
+
+    $dd = date('jS F, Y');
+
+    $ins = mysqli_query($conn, "INSERT INTO core_beneficiaries (name,contact,image,date) VALUES('$name','$contact','$folder','$dd')");
+
+	// Now let's move the uploaded image into the folder: image
+	if (move_uploaded_file($tempname, $folder) && $ins) {
+		echo "beneadded";
+	} else {
+		echo "failed";
+	}
+}
+
+
+function addstaff($name, $contact, $bene, $pin)
+{
+  
+    include 'starter.php';
+
+    
+
+
+    // $iterations=390000; 
+    // $algorithm='sha256'; 
+
+
+    // $salt = base64_encode(openssl_random_pseudo_bytes(9));
+
+    // $hash = hash_pbkdf2($algorithm, $password, $salt, $iterations, 32, true);
+
+    $password = 'pbkdf2_sha256$390000$GRYVoUS4ebSJFxTkXtz5zU$Qcz9n/jTD0FbnMu/me8kg5RFydEhmlvPvKfaajTQFXM=';
+    $num = 1;
+
+    $ins = mysqli_query($conn, "INSERT INTO core_staffuser (username,contact,bene_uid,pin,password,is_staff,is_superuser,is_active) VALUES ('$name','$contact','$bene','$pin','$password','$num','$num','$num')");
+
+	if ($ins) {
+		echo "staffadded";
+	} else {
+		echo "failed";
+	}
+}
+
+
 function payment($uid, $ref, $amount)
 {
     include 'starter.php';
     $dateadded = date('jS F,Y');
-
     $ins = mysqli_query($conn, "INSERT INTO transactions (uid,transid,amount,dateadded) VALUES('$uid','$ref','$amount','$dateadded')");
     $up = mysqli_query($conn, "UPDATE members SET paystatus ='paid' WHERE id ='$uid'");
 
@@ -672,11 +748,12 @@ function changepass($id, $password, $newpass)
 }
 function transactions()
 {
-    // session_start();
+
+
     $id = $_SESSION['id'];
     include 'starter.php';
 
-    $sel = mysqli_query($conn, "SELECT * FROM  transactions WHERE uid = '$id'");
+    $sel = mysqli_query($conn, "SELECT * FROM  core_account WHERE donor = 'kwame asante'");
     while ($row = mysqli_fetch_array($sel)) {
         echo '<tr>
         <td>
@@ -705,59 +782,133 @@ function transactions()
     }
 }
 
-function registered()
+function getbene()
 {
     include 'starter.php';
-    $u = mysqli_query($conn, 'SELECT * FROM members ORDER BY id DESC ');
+    $u = mysqli_query($conn, 'SELECT * FROM core_beneficiaries ORDER BY id DESC ');
     // $y = mysqli_query($conn, 'SELECT * FROM transactions ORDER BY uid DESC ');
 
     while ($row = mysqli_fetch_array($u)) {
-        $y = mysqli_query($conn, 'SELECT * FROM transactions WHERE uid = ' . $row['id'] . ' ');
+        // $y = mysqli_query($conn, 'SELECT * FROM transactions WHERE uid = ' . $row['id'] . ' ');
 
-        $row2 = mysqli_fetch_array($y);
+        // $row2 = mysqli_fetch_array($y);
+        echo '
+        <option value="' . $row['id'] . '">' . $row['name'] . '</option>
+        ';
+
+        // echo '<input id="email" type="hidden"  value="' . $row['image'] . '" class="form-control" name="photo">';
+
+        
+    }
+}
+
+
+function getbene_spec()
+{
+    include 'starter.php';
+    $u = mysqli_query($conn, 'SELECT * FROM core_beneficiaries ORDER BY id DESC ');
+    // $y = mysqli_query($conn, 'SELECT * FROM transactions ORDER BY uid DESC ');
+
+    while ($row = mysqli_fetch_array($u)) {
+        // $y = mysqli_query($conn, 'SELECT * FROM transactions WHERE uid = ' . $row['id'] . ' ');
+
+        // $row2 = mysqli_fetch_array($y);
+        echo '
+        <option value="' . $row['name'] . '">' . $row['name'] . '</option>
+        ';
+
+        // echo '<input id="email" type="hidden"  value="' . $row['image'] . '" class="form-control" name="photo">';
+
+        
+    }
+}
+
+
+
+
+function registered()
+{
+    include 'starter.php';
+    $u = mysqli_query($conn, 'SELECT * FROM core_account ORDER BY id DESC ');
+    // $y = mysqli_query($conn, 'SELECT * FROM transactions ORDER BY uid DESC ');
+
+    while ($row = mysqli_fetch_array($u)) {
+        // $y = mysqli_query($conn, 'SELECT * FROM transactions WHERE uid = ' . $row['id'] . ' ');
+
+        // $row2 = mysqli_fetch_array($y);
         echo '<tr>
         <td>' . $row['id'] . '</td>
-
-        <td>
-
-            <span class="js-lists-values-employee-name">' . $row['name'] . '</span>
-
-        </td>
-
-        <td>' . $row['email'] . '</td>
-        <td>' . $row['contact'] . '</td>
-        <td><span class="js-lists-values-employee-title">' . $row['region'] . '</span></td>
-        <td><span class="js-lists-values-employee-district">' . $row['nationality'] . '</span>
-        <td><span class="js-lists-values-employee-district">' . $row['gnaccid'] . '</span>
-        <td>' . $row['tdate'] . '</td>
-        <td>' . $row['gpsAddress'] . '</td>
-        <td><span class="js-lists-values-employee-paid">' . $row['paystatus'] . '</span></td> ';
-        if (isset($row2['dateadded'])) {
-            echo '<td>' . $row2['dateadded'] . '</td>';
-        } else {
-            echo '<td></td>';
-        }
-        echo '
-        <td>' . $row['size'] . '</td>
+        <td>' . $row['donor_name'] . '</td>
+        <td> <span class="js-lists-values-employee-name">' . $row['staff_name'] . '</span></td>
         
-
-
-        <td>' . $row['color'] . '</td>
-
- 
-        <td>' . $row['counsellingArea'] . '</td>
-
-
-        <td>' . $row['dateadded'] . '</td>
-
-        <td><a class="btn btn-success" href="payment_user.php?id=' . $row['id'] . '"><i class="fa fa-money-bill"></i></a></td>
-        
-        <td><button class="btn btn-info payme" id="' . $row['id'] . '"><i class="fa fa-info"></i></button></td>      
-
-
+        <td>' . $row['phone_number'] . '</td>
+        <td><span class="js-lists-values-employee-title">' . $row['payment_method'] . '</span></td>
+        <td><span class="js-lists-values-employee-district">' . $row['currency'] . '</span>
+        <td><span class="js-lists-values-employee-district">' . $row['amount'] . '</span>
+        <td><span class="js-lists-values-employee-paid">' . $row['pay_date'] . '</span></td> 
         <td><a class="btn btn-primary" href="update_user.php?id=' . $row['id'] . '"><i class="fa fa-edit"></i></a></td> 
+        <td><button class="btn btn-danger delme" id=' . $row['id'] . '"><i class="fa fa-trash"></i></button></td>      
 
 
+
+
+                                        
+    </tr>';
+    }
+}
+
+
+function staff()
+{
+    include 'starter.php';
+    $u = mysqli_query($conn, 'SELECT * FROM core_staffuser ORDER BY id DESC ');
+    // $y = mysqli_query($conn, 'SELECT * FROM transactions ORDER BY uid DESC ');
+
+    while ($row = mysqli_fetch_array($u)) {
+        // $y = mysqli_query($conn, 'SELECT * FROM transactions WHERE uid = ' . $row['id'] . ' ');
+
+        // $row2 = mysqli_fetch_array($y);
+        echo '<tr>
+        <td>' . $row['id'] . '</td>
+        <td>' . $row['first_name'] . '</td>
+        <td>' . $row['username'] . '</td>
+        <td> <span class="js-lists-values-employee-name">' . $row['contact'] . '</span></td>
+        
+        
+        <td><span class="js-lists-values-employee-title">' . $row['Beneficiary_name'] . '</span></td>
+        
+        
+        <td><a class="btn btn-primary" href="update_user.php?id=' . $row['id'] . '"><i class="fa fa-edit"></i></a></td> 
+        <td><button class="btn btn-danger delme" id=' . $row['id'] . '"><i class="fa fa-trash"></i></button></td>      
+
+
+
+
+                                        
+    </tr>';
+    }
+}
+
+function bene()
+{
+    include 'starter.php';
+    $u = mysqli_query($conn, 'SELECT * FROM core_beneficiaries ORDER BY id DESC ');
+    // $y = mysqli_query($conn, 'SELECT * FROM transactions ORDER BY uid DESC ');
+
+    while ($row = mysqli_fetch_array($u)) {
+        // $y = mysqli_query($conn, 'SELECT * FROM transactions WHERE uid = ' . $row['id'] . ' ');
+
+        // $row2 = mysqli_fetch_array($y);
+        echo '<tr>
+        <td>' . $row['id'] . '</td>
+        <td>' . $row['name'] . '</td>
+        <td> <span class="js-lists-values-employee-name">' . $row['contact'] . '</span></td>
+        
+        
+        <td><span class="js-lists-values-employee-title">' . $row['image'] . '</span></td>
+        
+        
+        <td><a class="btn btn-primary" href="update_user.php?id=' . $row['id'] . '"><i class="fa fa-edit"></i></a></td> 
         <td><button class="btn btn-danger delme" id=' . $row['id'] . '"><i class="fa fa-trash"></i></button></td>      
 
 
@@ -949,9 +1100,140 @@ function trans()
 function countmembers()
 {
     include 'starter.php';
-    $c = mysqli_query($conn, 'SELECT * FROM members');
-    $count = mysqli_num_rows($c);
-    echo $count;
+    $c = mysqli_query($conn, 'SELECT * FROM core_account');
+    $amount = 0;
+    while ($row = mysqli_fetch_array($c)) {
+        $amount = $amount + $row['amount'];
+        // $count = $c['amount'];
+
+
+
+    }
+    // $amount = 0;
+    // $amount = $amount + $c['amount'];
+    // $count = $c['amount'];
+    // $count = mysqli_num_rows($c);
+
+    echo  'GH₵ ' . $amount;
+}
+
+function countmembers_spec($bene)
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $amount = 0;
+    while ($row = mysqli_fetch_array($c)) {
+        $amount = $amount + $row['amount'];
+        // $count = $c['amount'];
+    }
+    // $amount = 0;
+    // $amount = $amount + $c['amount'];
+    // $count = $c['amount'];
+    // $count = mysqli_num_rows($c);
+
+    echo  'GH₵ ' . $amount;
+}
+
+
+
+function showdonors()
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, 'SELECT * FROM core_account ORDER BY  pay_date DESC');
+
+    while ($row = mysqli_fetch_array($c)) {
+
+        echo '<div class="border border-light p-3 rounded mb-3">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="font-18 mb-1">' . $row['donor_name'] . '</p>
+                                            
+                                        </div>
+                                        <div>
+                                            <p class="font-18 mb-1">' . $row['staff_name'] . '</p>
+                                            
+                                        </div>
+                                        <p class="text-success my-0"> ' . $row['currency'] . ' ' . $row['amount'] . '</p>
+
+                                        <div class="avatar-sm">
+                                            <span class="avatar-title bg-sucsess rounded-circle h3 my-0">
+                                                <i class="mdi mdi-account-multiple"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>';
+    }
+    // $amount = 0;
+    // $amount = $amount + $c['amount'];
+    // $count = $c['amount'];
+    // $count = mysqli_num_rows($c);
+
+
+}
+
+
+function showdonors_spec($bene)
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene' ORDER BY  pay_date DESC");
+
+    while ($row = mysqli_fetch_array($c)) {
+
+        echo '<div class="border border-light p-3 rounded mb-3">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="font-18 mb-1">' . $row['donor_name'] . '</p>
+                                            
+                                        </div>
+                                        <div>
+                                            <p class="font-18 mb-1">' . $row['staff_name'] . '</p>
+                                            
+                                        </div>
+                                        <p class="text-success my-0"> ' . $row['currency'] . ' ' . $row['amount'] . '</p>
+
+                                        <div class="avatar-sm">
+                                            <span class="avatar-title bg-sucsess rounded-circle h3 my-0">
+                                                <i class="mdi mdi-account-multiple"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>';
+    }
+    // $amount = 0;
+    // $amount = $amount + $c['amount'];
+    // $count = $c['amount'];
+    // $count = mysqli_num_rows($c);
+
+
+}
+function transactionstotal()
+{
+    // session_start();
+    $id = $_SESSION['id'];
+    include 'starter.php';
+
+    $u = mysqli_query($conn, 'SELECT * FROM members ORDER BY id DESC ');
+    // $y = mysqli_query($conn, 'SELECT * FROM transactions ORDER BY uid DESC ');
+
+    $amount = 0;
+    while ($row = mysqli_fetch_array($u)) {
+        $y = mysqli_query($conn, "SELECT * FROM  transactions WHERE uid = '$id'");
+
+
+        while ($row2 = mysqli_fetch_array($y)) {
+
+            // echo $id;
+            // echo $row2['uid'];
+            // echo $row['id'];
+
+            if ($row2['uid'] == $row['id']) {
+
+                $amount = $amount + $row2['amount'];
+            }
+        }
+    }
+
+    return $amount;
 }
 
 
@@ -1175,9 +1457,37 @@ function total()
 function totalstatus()
 {
     include 'starter.php';
-    $c = mysqli_query($conn, 'SELECT * FROM members WHERE paystatus="paid"');
+    $c = mysqli_query($conn, 'SELECT * FROM core_account');
     $count = mysqli_num_rows($c);
-    echo 'Gh¢ ' . $count * 70;
+    echo $count;
+}
+
+
+function totalstatus_spec($bene)
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene' ");
+
+    $count = mysqli_num_rows($c);
+    echo $count;
+}
+
+function totalstaff()
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, 'SELECT * FROM core_staffuser');
+    $count = mysqli_num_rows($c);
+    echo $count;
+}
+
+
+function totalbene()
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, 'SELECT * FROM core_beneficiaries');
+
+    $count = mysqli_num_rows($c);
+    echo $count;
 }
 
 
@@ -1274,7 +1584,7 @@ function dele($id)
 {
     include 'starter.php';
     // $id = $_GET['id'];
-    $del = mysqli_query($conn, "DELETE FROM members WHERE id = '$id'");
+    $del = mysqli_query($conn, "DELETE FROM core_staffuser WHERE id = '$id'");
 
     if ($del) {
         echo 'userdele';

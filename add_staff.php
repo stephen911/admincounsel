@@ -1,9 +1,10 @@
 <?php
 include 'functions.php';
-include 'yolkpay.php';
-$yolk = new YolkPay();
+// header("Refresh:1");
+// include 'yolkpay.php';
+// $yolk = new YolkPay();
 checker();
-$user = upmembers();
+$user = adminmembers();
 //  var_dump($_SESSION['id']);
 
 // if (isset($_POST['btnupdate'])) {
@@ -24,7 +25,7 @@ $user = upmembers();
 
 <head>
     <meta charset="utf-8" />
-    <title>Profile | OMNIBSIC - Payment</title>
+    <title>Profile | OMNIBSIC - Edit Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -86,8 +87,8 @@ $user = upmembers();
                 <!-- Leftbar User -->
                 <div class="leftbar-user">
                     <a href="#">
-                        <img src="uploads/<?php echo $user['passport']; ?>" alt="user-image" height="42" class="rounded-circle shadow-sm">
-                        <span class="leftbar-user-name"><strong><?php echo $user['name']; ?></strong></span>
+                        <img src="assets/images/omni.jpeg" alt="user-image" height="42" class="rounded-circle shadow-sm">
+                        <span class="leftbar-user-name"><strong><?php echo $user['first_name']; ?></strong></span>
                     </a>
                 </div>
 
@@ -131,10 +132,10 @@ $user = upmembers();
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="#">OMNIBSIC</a></li>
                                         <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                                        <li class="breadcrumb-item active">Payment</li>
+                                        <li class="breadcrumb-item active">Edit Info</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Payment</h4>
+                                <h4 class="page-title">Edit Info</h4>
                             </div>
                         </div>
                     </div>
@@ -147,120 +148,87 @@ $user = upmembers();
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Payment </h4>
+                                    <h4 class="header-title">Edit Info</h4>
                                     <p class="text-muted font-14">
-                                        Add Payment Info
+                                        Edit Your Info
                                     </p>
 
-                                    <!-- <ul class="nav nav-tabs nav-bordered mb-3">
-                                        <li class="nav-item">
-                                            <a href="#form-row-preview" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">
-                                                Preview
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#form-row-code" data-bs-toggle="tab" aria-expanded="true" class="nav-link">
-                                                Code
-                                            </a>
-                                        </li>
-                                    </ul>  -->
-                                    <!-- end nav -->
+
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="form-row-preview">
-                                            <form action="dashboard.php" novalidate method="get" class="pay" enctype='multipart/form-data'>
-                                              
-                                                
+                                            <form action="" novalidate method="get" class="staff" enctype='multipart/form-data'>
+                                               
 
                                                 <div class="mb-3">
                                                     <label for="emailaddress" class="form-label">Name</label>
-                                                    <input class="form-control" type="text" id="name" required placeholder="Enter your phone Number" name="name" value="<?php echo ($user['name'] == '') ? '' : $user['name']; ?>">
+                                                    <input class="form-control" type="text" id="name" required placeholder="Enter Staff's Name" name="name" >
+                                                    <input id="email" type="hidden" placeholder="" value="<?php echo  $user['id']; ?>" class="form-control" name="id">
+                                                </div>
+
+                                             
+                                                <div class="mb-3">
+                                                    <label for="emailaddress" class="form-label">Phone Number</label>
+                                                    <input class="form-control" type="text" id="name" required placeholder="Enter Staff's Phone Number" name="contact" >
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-
-                                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email"  value="<?php echo ($user['email'] == '') ? '' : $user['email']; ?>">
-                                                    <input id="email" type="hidden" placeholder="Name to be shown on Certificate" value="<?php echo  $user['id']; ?>" class="form-control" name="id">
-
-                                                    <!-- <small id="emailHelp" class="form-text text-muted">Please make sur you remember the password to the email you are providing</small> -->
-                                                </div>
-
-
-<div class="mb-3">
-                                                    <label for="example-select" class="form-label">Counsellor Membership Type</label>
-                                                    <select class="form-select" id="student-select" name="membership">
-                                                    <option selected value="<?php echo ($user['membership'] == '') ? '' : $user['membership']; ?>"><?php echo ($user['membership'] == '') ? 'Select Membership' : $user['membership']; ?></option>
-
-                                                        <option value="250">Certificated Counsellor</option>
-                                                        <option value="300">Associate Counsellor</option>
-
-
-                                                        <option value="150">Student - Counsellor</option>
-                                                        <option value="150">Renewal</option>
-
-
-
+                                                    <label for="example-select" class="form-label">Beneficiary's Name</label>
+                                                    <select class="form-select" id="example-select" name="bene">
+                                                    
+                                                        <?php getbene() ?>
 
                                                     </select>
+                                                </div> 
+
+
+                                                <div class="mb-3">
+                                                    <label for="emailaddress" class="form-label">Pin</label>
+                                                    <input class="form-control" type="text" id="pin" required placeholder="Enter Staff's Pin" name="pin" >
                                                 </div>
-
-                                                <!-- <div class="mb-3">
-                                                    <label for="example-select" class="form-label">How did you hear/Know of this association</label>
-                                                    <select class="form-select" id="example-select" name="heard">
-                                                        <option selected></option>
-                                                        <option>OMNIBSIC Website</option>
-                                                        <option>Facebook</option>
-                                                        <option>WhatsApp</option>
-                                                        <option>Instagram</option>
-                                                        <option>Friend</option>
-                                                        <option>News Papers</option>
-                                                        <option>TUCEE Institute of Counselling and Technology Website</option>
-
-
-                                                    </select>
-                                                </div> -->
-
 
                                                 
 
+                                               
+                                        </div>
+
+                                       
 
 
-                                                <!-- <div class="mb-3">
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="checkbox-signup">
-                                        <label class="form-check-label" for="checkbox-signup">I accept <a href="#" class="text-muted">Terms and Conditions</a></label>
-                                    </div>
-                                </div> -->
 
-                                                <div class="mb-3 text-center">
-                                                    <button class="btn btn-primary" type="submit"> Add Payment </button>
-                                                </div>
 
-                                            </form>
-                                        </div> <!-- end preview-->
 
-                                        <!-- end preview code-->
-                                    </div> <!-- end tab-content-->
 
-                                </div> <!-- end card-body -->
-                            </div> <!-- end card-->
-                        </div> <!-- end col -->
-                    </div>
-                    <!-- end row -->
+                                    
 
-                </div> <!-- container -->
+                                        <div class="mb-3 text-center">
+                                            <button class="btn btn-primary" type="submit"> Add Staff </button>
+                                        </div>
 
-            </div> <!-- content -->
+                                        </form>
+                                    </div> <!-- end preview-->
 
-            <!-- Footer Start -->
-            <?php include "footer.php" ?>
-            <!-- end Footer -->
+                                    <!-- end preview code-->
+                                </div> <!-- end tab-content-->
 
-        </div>
+                            </div> <!-- end card-body -->
+                        </div> <!-- end card-->
+                    </div> <!-- end col -->
+                </div>
+                <!-- end row -->
 
-        <!-- ============================================================== -->
-        <!-- End Page content -->
-        <!-- ============================================================== -->
+            </div> <!-- container -->
+
+        </div> <!-- content -->
+
+        <!-- Footer Start -->
+        <?php include "footer.php" ?>
+        <!-- end Footer -->
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
 
     </div>
     <!-- END wrapper -->
@@ -774,6 +742,7 @@ $user = upmembers();
     <!-- App js -->
     <script src="assets/js/app.min.js"></script>
     <script src="processor.js"></script>
+    <script src="processor.php"></script>
 
 
 </body>

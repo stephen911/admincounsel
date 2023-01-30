@@ -23,7 +23,7 @@ $user = members();
 
 <head>
     <meta charset="utf-8" />
-    <title>Upload Users | GNACC - Upload Users</title>
+    <title>Upload Users | OMNIBSIC - Upload Users</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -58,20 +58,20 @@ $user = members();
             <!-- Logo Light -->
             <a href="dashboard.php" class="logo logo-light">
                 <span class="logo-lg">
-                    <img src="assets/images/logo.png" alt="logo" height="22">
+                    <img src="assets/images/omni.jpeg" alt="logo" height="22">
                 </span>
                 <span class="logo-sm">
-                    <img src="assets/images/logo.png" alt="small logo" height="22">
+                    <img src="assets/images/omni.jpeg" alt="small logo" height="22">
                 </span>
             </a>
 
             <!-- Logo Dark -->
             <a href="dashboard.php" class="logo logo-dark">
                 <span class="logo-lg">
-                    <img src="assets/images/logo.png" alt="dark logo" height="22">
+                    <img src="assets/images/omni.jpeg" alt="dark logo" height="22">
                 </span>
                 <span class="logo-sm">
-                    <img src="assets/images/logo.png" alt="small logo" height="22">
+                    <img src="assets/images/omni.jpeg" alt="small logo" height="22">
                 </span>
             </a>
 
@@ -85,7 +85,7 @@ $user = members();
                 <!-- Leftbar User -->
                 <div class="leftbar-user">
                     <a href="#">
-                        <img src="assets/images/logo.png" alt="user-image" height="42" class="rounded-circle shadow-sm">
+                        <img src="assets/images/omni.jpeg" alt="user-image" height="42" class="rounded-circle shadow-sm">
                         <span class="leftbar-user-name"><strong><?php echo $user['name']; ?></strong></span>
                     </a>
                 </div>
@@ -128,7 +128,7 @@ $user = members();
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="#">GNACC</a></li>
+                                        <li class="breadcrumb-item"><a href="#">OMNIBSIC</a></li>
                                         <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
                                         <li class="breadcrumb-item active">Upload Users</li>
                                     </ol>

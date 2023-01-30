@@ -1,9 +1,9 @@
 <?php
 include 'functions.php';
-include 'yolkpay.php';
-$yolk = new YolkPay();
+// include 'yolkpay.php';
+// $yolk = new YolkPay();
 checker();
-$user = upmembers();
+$user = adminmembers();
 //  var_dump($_SESSION['id']);
 
 // if (isset($_POST['btnupdate'])) {
@@ -24,7 +24,7 @@ $user = upmembers();
 
 <head>
     <meta charset="utf-8" />
-    <title>Profile | OMNIBSIC - Payment</title>
+    <title>Profile | OMNIBSIC - Edit Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -86,8 +86,8 @@ $user = upmembers();
                 <!-- Leftbar User -->
                 <div class="leftbar-user">
                     <a href="#">
-                        <img src="uploads/<?php echo $user['passport']; ?>" alt="user-image" height="42" class="rounded-circle shadow-sm">
-                        <span class="leftbar-user-name"><strong><?php echo $user['name']; ?></strong></span>
+                        <img src="assets/images/omni.jpeg" alt="user-image" height="42" class="rounded-circle shadow-sm">
+                        <span class="leftbar-user-name"><strong><?php echo $user['first_name']; ?></strong></span>
                     </a>
                 </div>
 
@@ -131,10 +131,10 @@ $user = upmembers();
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="#">OMNIBSIC</a></li>
                                         <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                                        <li class="breadcrumb-item active">Payment</li>
+                                        <li class="breadcrumb-item active">Edit Info</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Payment</h4>
+                                <h4 class="page-title">Edit Info</h4>
                             </div>
                         </div>
                     </div>
@@ -147,64 +147,300 @@ $user = upmembers();
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Payment </h4>
+                                    <h4 class="header-title">Edit Info</h4>
                                     <p class="text-muted font-14">
-                                        Add Payment Info
+                                        Edit Your Info
                                     </p>
 
-                                    <!-- <ul class="nav nav-tabs nav-bordered mb-3">
-                                        <li class="nav-item">
-                                            <a href="#form-row-preview" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">
-                                                Preview
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#form-row-code" data-bs-toggle="tab" aria-expanded="true" class="nav-link">
-                                                Code
-                                            </a>
-                                        </li>
-                                    </ul>  -->
-                                    <!-- end nav -->
+
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="form-row-preview">
-                                            <form action="dashboard.php" novalidate method="get" class="pay" enctype='multipart/form-data'>
-                                              
-                                                
-
-                                                <div class="mb-3">
-                                                    <label for="emailaddress" class="form-label">Name</label>
-                                                    <input class="form-control" type="text" id="name" required placeholder="Enter your phone Number" name="name" value="<?php echo ($user['name'] == '') ? '' : $user['name']; ?>">
+                                            <form action="" novalidate method="get" class="bene" enctype='multipart/form-data'>
+                                                <!-- <div class="mb-3">
+                                                    <label for="example-select" class="form-label">Title</label>
+                                                    <select class="form-select" id="example-select" name="title">
+                                                        <option selected></option>
+                                                        <option>Rev.</option>
+                                                        <option>Mr.</option>
+                                                        <option>Mrs.</option>
+                                                        <option>Miss</option>
+                                                        <option>Dr.</option>
+                                                        <option>Sis.</option>
+                                                        <option>Fr.</option>
+                                                        <option>Ps.</option>
+                                                        <option>Others</option>
+                                                    </select>
                                                 </div>
 
                                                 <div class="mb-3">
+                                                    <label for="fullname" class="form-label">First Name</label>
+                                                    <input class="form-control" type="text" id="fullname" placeholder="Enter your First Name" required name="fname">
+                                                    <input id="email" type="hidden" placeholder="Name to be shown on Certificate" value="<?php echo  $user['id']; ?>" class="form-control" name="id">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="fullname" class="form-label">Last Name</label>
+                                                    <input class="form-control" type="text" id="fullname" placeholder="Enter your Last Name" required name="lname">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="fullname" class="form-label">Other Names</label>
+                                                    <input class="form-control" type="text" id="fullname" placeholder="Other Name" required name="oname">
+                                                </div> -->
+
+                                                <div class="mb-3">
+                                                    <label for="emailaddress" class="form-label">Name</label>
+                                                    <input class="form-control" type="text" id="name" required placeholder="Enter Beneficiaries Name" name="name" >
+                                                    <input id="email" type="hidden" placeholder="" value="<?php echo  $user['id']; ?>" class="form-control" name="id">
+                                                </div>
+
+                                                <!-- <div class="mb-3">
                                                     <label for="exampleInputEmail1" class="form-label">Email address</label>
 
                                                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email"  value="<?php echo ($user['email'] == '') ? '' : $user['email']; ?>">
                                                     <input id="email" type="hidden" placeholder="Name to be shown on Certificate" value="<?php echo  $user['id']; ?>" class="form-control" name="id">
 
-                                                    <!-- <small id="emailHelp" class="form-text text-muted">Please make sur you remember the password to the email you are providing</small> -->
+                                                    <small id="emailHelp" class="form-text text-muted">Please make sur you remember the password to the email you are providing</small>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="example-select" class="form-label">Gender</label>
+                                                    <select class="form-select" id="example-select" name="gender">
+                                                    <option selected value="<?php //echo ($user['gender'] == '') ? '' : $user['gender']; 
+                                                                            ?>"><//?php echo ($user['gender'] == '') ? 'Select Gender' : $user['gender']; ?></option>
+
+                                                        <option>Male</option>
+                                                        <option>Female</option>
+
+                                                    </select>
+                                                </div> -->
+                                                <div class="mb-3">
+                                                    <label for="emailaddress" class="form-label">Phone Number</label>
+                                                    <input class="form-control" type="text" id="name" required placeholder="Enter your phone Number" name="contact" >
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="example-fileinput" class="form-label">Image</label>
+                                                    <input type="file" id="example-fileinput" class="form-control" id="image" name="image">
                                                 </div>
 
 
-<div class="mb-3">
+
+                                                <!-- <div class="mb-3">
+                                                    <label for="emailaddress" class="form-label">Contact Number</label>
+                                                    <input class="form-control" type="text" id="contact" required placeholder="Enter your phone Number" name="contact" value="<?php echo ($user['contact'] == '') ? '' : $user['contact']; ?>">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="emailaddress" class="form-label">WhatsApp Number</label>
+                                                    <input class="form-control" type="text" id="whatsapp" required placeholder="Enter your WhatsApp Number" name="wnumber" value="<?php echo ($user['whatsapp'] == '') ? '' : $user['whatsapp']; ?>">
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="Emergency Contact Number" class="form-label">Emergency Contact Number</label>
+                                                    <input class="form-control" type="text" id="emergency" required placeholder="Enter your Emergency contact Number" name="enumber" value="<?php echo ($user['emergency'] == '') ? '' : $user['emergency']; ?>">
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="Emergency Contact Number" class="form-label">Residential Digital Address</label>
+                                                    <input class="form-control" type="text" id="emergency" required placeholder="Enter your GPS Address" name="address" value="<?php echo ($user['gpsAddress'] == '') ? '' : $user['gpsAddress']; ?>">
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="emailaddress" class="form-label">Occupation</label>
+                                                    <input class="form-control" type="text" id="occupation" required placeholder="Enter your Occupation" name="occupation" value="<?php echo ($user['occupation'] == '') ? '' : $user['occupation']; ?>">
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="example-select" class="form-label">Marital Status</label>
+                                                    <select class="form-select" id="example-select" name="mstatus">
+                                                    <option selected value="<?php //echo ($user['maritalStatus'] == '') ? '' : $user['maritalStatus']; 
+                                                                            ?>"><//?php echo ($user['maritalStatus'] == '') ? 'Select Marital Status ' : $user['maritalStatus']; ?></option>
+                                                        <option>Single</option>
+                                                        <option>Married</option>
+
+                                                    </select>
+                                                </div> -->
+
+                                                <!-- <div class="mb-3">
+                                                    <label for="example-select" class="form-label">Region</label>
+                                                    <select class="form-select" id="example-select" name="region">
+                                                    <option selected value="<//?php// echo ($user['region'] == '') ? '' : $user['region']; ?>"><?php echo ($user['region'] == '') ? 'Select Region' : $user['region']; ?></option>
+
+                                                        </option>
+
+                                                        <option value="Greater Accra">Greater Accra</option>
+                                                        <option value="Ashanti Region">Ashanti Region</option>
+                                                        <option value="Ahafo Region">Ahafo Region</option>
+                                                        <option value="Bono Region">Bono Region</option>
+                                                        <option value="Bono East Region">Bono East Region</option>
+                                                        <option value="Central Region">Central Region</option>
+                                                        <option value="Eastern Region">Eastern Region</option>
+                                                        <option value="Northern Region">Northern Region</option>
+                                                        <option value="North East Region">North East Region</option>
+                                                        <option value="Oti Region">Oti Region</option>
+                                                        <option value="Savannah Region">Savannah Region</option>
+                                                        <option value="Upper East Region">Upper East Region</option>
+                                                        <option value="Upper West Region">Upper West Region</option>
+                                                        <option value="Volta Region">Volta Region</option>
+                                                        <option value="Western Region">Western Region</option>
+                                                        <option value="Western North Region">Western North Region</option>
+
+                                                    </select>
+                                                </div>
+
+
+                                                <div class="mb-3">
+                                                    <label for="example-select" class="form-label">Nationality</label>
+                                                    <select class="form-select" id="example-select" name="nationality">
+                                                        <option selected></option>
+                                                        <option selected value="<?php //echo ($user['nationality'] == '') ? '' : $user['nationality']; 
+                                                                                ?>"><//?php echo ($user['nationality'] == '') ? 'Select Nationality' : $user['nationality']; ?></option>
+
+                                                        <option>Ghanaian</option>
+                                                        <option>Foreigner</option>
+
+                                                    </select>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="example-fileinput" class="form-label">Passport Size Picture</label>
+                                                    <input type="file" id="example-fileinput" class="form-control" name="passport">
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="example-select" class="form-label">Educational Level</label>
+                                                    <select class="form-select" id="example-select" name="edulevel">
+                                                    <option selected value="<?php //echo ($user['eduLevel'] == '') ? '' : $user['eduLevel']; 
+                                                                            ?>"><//?php echo ($user['eduLevel'] == '') ? 'Select Education Level' : $user['eduLevel']; ?></option>
+
+                                                        <option>Senior High Certificate</option>
+                                                        <option>Diploma Certificate</option>
+                                                        <option value="Bachelors Degree">Bachelor's Degree</option>
+                                                        <option value="Masters Degree">Master's Degree</option>
+                                                        <option>Doctorate Degree</option>
+                                                        <option>Others</option>
+
+                                                    </select>
+                                                </div>
+
+
+                                                <div class="mb-3">
                                                     <label for="example-select" class="form-label">Counsellor Membership Type</label>
                                                     <select class="form-select" id="student-select" name="membership">
-                                                    <option selected value="<?php echo ($user['membership'] == '') ? '' : $user['membership']; ?>"><?php echo ($user['membership'] == '') ? 'Select Membership' : $user['membership']; ?></option>
+                                                    <option selected value="<?php //echo ($user['membership'] == '') ? '' : $user['membership']; 
+                                                                            ?>"><//?php echo ($user['membership'] == '') ? 'Select Membership' : $user['membership']; ?></option>
 
-                                                        <option value="250">Certificated Counsellor</option>
-                                                        <option value="300">Associate Counsellor</option>
+                                                        <option value="Certificated">Certificated Counsellor</option>
+                                                        <option value="Associate">Associate Counsellor</option>
 
 
-                                                        <option value="150">Student - Counsellor</option>
-                                                        <option value="150">Renewal</option>
-
+                                                        <option value="Student">Student - Counsellor</option>
 
 
 
                                                     </select>
                                                 </div>
 
+                                                <div class="mb-3">
+                                                    <label for="example-select" class="form-label">Specialised Area Of Counselling</label>
+                                                    <select class="form-select" id="example-select" name="area">
+                                                    <option selected value="<?php //echo ($user['counsellingArea'] == '') ? '' : $user['counsellingArea']; 
+                                                                            ?>"><//?php echo ($user['counsellingArea'] == '') ? 'Select Counselling Area' : $user['counsellingArea']; ?></option>
+
+                                                        <option>Marriage and Family</option>
+                                                        <option>Guidance and Career</option>
+
+
+                                                        <option>Rehabilitaion</option>
+                                                        <option>Mental Health</option>
+                                                        <option>Substance Abuse</option>
+
+
+                                                        <option>School and Careets</option>
+                                                        <option>Others</option>
+
+                                                    </select>
+                                                </div>
+
+
+                                                <div class="mb-3">
+                                                    <label for="example-select" class="form-label">Do you have Physical Challenge(s)?</label>
+                                                    <select class="form-select" id="example-select" name="challenge">
+                                                    <option selected value="<?php //echo ($user['phyChallenge'] == '') ? '' : $user['phyChallenge']; 
+                                                                            ?>"><//?php echo ($user['phyChallenge'] == '') ? 'Are you physically Challenged?' : $user['phyChallenge']; ?></option>
+
+                                                        <option>Yes</option>
+                                                        <option>No</option>
+
+
+                                                    </select>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="example-select" class="form-label">T-Shirt Colour Preference</label>
+                                                    <select class="form-select" id="example-select" name="color">
+                                                    <option selected value="<?php //echo ($user['color'] == '') ? '' : $user['color']; 
+                                                                            ?>"><//?php echo ($user['color'] == '') ? 'T-Shirt Colour Preference' : $user['color']; ?></option>
+
+                                                        <option>Any</option>
+                                                        <option>White</option>
+                                                        <option>Blue</option>
+                                                        <option>Black</option>
+                                                        <option>Orange</option>
+
+
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="example-select" class="form-label">T-Shirt Size Preference</label>
+                                                    <select class="form-select" id="example-select" name="size">
+                                                    <option selected value="<//?php// echo ($user['size'] == '') ? '' : $user['size']; ?>"><//?php echo ($user['size'] == '') ? 'T-Shirt Size Preference' : $user['size']; ?></option>
+
+                                                        <option>M</option>
+                                                        <option>L</option>
+                                                        <option>XL</option>
+                                                        <option>XXL</option>
+                                                        <option>XXXL</option>
+
+
+                                                    </select>
+                                                </div>
+
+                                                <div class="mb-3">
+                                    <label for="example-select" class="form-label">Are you a Student?</label>
+                                    <select class="form-select" id="example-select" name="student">
+                                        <option selected></option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+
+
+                                    </select>
+                                </div>
+
+                                                <div id="student" style="display: none;">
+                                                    <div class="mb-3">
+                                                        <label for="emailaddress" class="form-label">Name of Institution / School</label>
+                                                        <input class="form-control" type="text" id="school" required placeholder="Enter the Name of your Institution" name="school" value="<//?php echo ($user['school'] == '') ? '' : $user['school']; ?>">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="emailaddress" class="form-label">Programme Of Study</label>
+                                                        <input class="form-control" type="text" id="programme" required placeholder="Enter your programme of study" name="programme" value="<//?php echo ($user['programme'] == '') ? '' : $user['programme']; ?>">
+                                                    </div>
+                                                    <div class="tab-content">
+                                                        <div class="tab-pane show active" id="datepicker-preview">
+                                                            <div class="col-lg-6">
+                                                                <div class="mb-3 position-relative" id="datepicker6">
+                                                                    <label class="form-label">Year Of Entry</label>
+                                                                    <input type="text" class="form-control" data-provide="datepicker" data-date-min-view-mode="2" data-date-container="#datepicker6" name="year" value="<?php echo ($user['year'] == '') ? '' : $user['year']; ?>">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> -->
+
                                                 <!-- <div class="mb-3">
+                                                        <label for="example-fileinput" class="form-label">Upload Student ID Card</label>
+                                                        <input type="file" id="example-fileinput" class="form-control" name="idcard">
+                                                    </div> -->
+                                        </div>
+
+                                        <!-- <div class="mb-3">
                                                     <label for="example-select" class="form-label">How did you hear/Know of this association</label>
                                                     <select class="form-select" id="example-select" name="heard">
                                                         <option selected></option>
@@ -221,46 +457,46 @@ $user = upmembers();
                                                 </div> -->
 
 
-                                                
 
 
 
-                                                <!-- <div class="mb-3">
+
+                                        <!-- <div class="mb-3">
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="checkbox-signup">
                                         <label class="form-check-label" for="checkbox-signup">I accept <a href="#" class="text-muted">Terms and Conditions</a></label>
                                     </div>
                                 </div> -->
 
-                                                <div class="mb-3 text-center">
-                                                    <button class="btn btn-primary" type="submit"> Add Payment </button>
-                                                </div>
+                                        <div class="mb-3 text-center">
+                                            <button class="btn btn-primary" type="submit"  name="upload"> Add beneficiary </button>
+                                        </div>
 
-                                            </form>
-                                        </div> <!-- end preview-->
+                                        </form>
+                                    </div> <!-- end preview-->
 
-                                        <!-- end preview code-->
-                                    </div> <!-- end tab-content-->
+                                    <!-- end preview code-->
+                                </div> <!-- end tab-content-->
 
-                                </div> <!-- end card-body -->
-                            </div> <!-- end card-->
-                        </div> <!-- end col -->
-                    </div>
-                    <!-- end row -->
+                            </div> <!-- end card-body -->
+                        </div> <!-- end card-->
+                    </div> <!-- end col -->
+                </div>
+                <!-- end row -->
 
-                </div> <!-- container -->
+            </div> <!-- container -->
 
-            </div> <!-- content -->
+        </div> <!-- content -->
 
-            <!-- Footer Start -->
-            <?php include "footer.php" ?>
-            <!-- end Footer -->
+        <!-- Footer Start -->
+        <?php include "footer.php" ?>
+        <!-- end Footer -->
 
-        </div>
+    </div>
 
-        <!-- ============================================================== -->
-        <!-- End Page content -->
-        <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
 
     </div>
     <!-- END wrapper -->
@@ -774,6 +1010,7 @@ $user = upmembers();
     <!-- App js -->
     <script src="assets/js/app.min.js"></script>
     <script src="processor.js"></script>
+    <script src="processor.php"></script>
 
 
 </body>

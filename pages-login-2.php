@@ -5,7 +5,7 @@
 <!-- Mirrored from coderthemes.com/hyper_2/modern/pages-login-2.php by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 14 Nov 2022 09:19:09 GMT -->
 <head>
         <meta charset="utf-8" />
-        <title>Log In | GNACC -  </title>
+        <title>Log In | OMNIBSIC -  </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -37,7 +37,7 @@
                                 <span><img src="assets/images/logo-dark.png" alt="dark logo" height="22"></span>
                             </a>
                             <a href="index-2.php" class="logo-light">
-                                <span><img src="assets/images/logo.png" alt="logo" height="22"></span>
+                                <span><img src="assets/images/omni.jpeg" alt="logo" height="22"></span>
                             </a>
                         </div>
 
@@ -103,7 +103,7 @@
                     <p class="lead"><i class="mdi mdi-format-quote-open"></i> It's a elegent templete. I love it very much! . <i class="mdi mdi-format-quote-close"></i>
                     </p>
                     <p>
-                        - GNACC Admin User
+                        - OMNIBSIC Admin User
                     </p>
                 </div> <!-- end auth-user-testimonial-->
             </div>

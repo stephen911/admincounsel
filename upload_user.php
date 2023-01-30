@@ -37,7 +37,7 @@ if (isset($_POST['submit']))
             {
                 // Get row data
                 // $id = $getData[0];
-                $gnaccid = $getData[1];
+                $OMNIBSICid = $getData[1];
                 $email = $getData[6];
                 $contact = '0'.$getData[7];
                 $membership = $getData[8];
@@ -52,7 +52,7 @@ if (isset($_POST['submit']))
  
                 // If user already exists in the database with the same email
                 
-                $query = "INSERT INTO members (name,email,contact,membership,zone,dateadded,gnaccid,password) VALUES('$name','$email','$contact','$membership','$zone','$dd', '$gnaccid','$password')";
+                $query = "INSERT INTO members (name,email,contact,membership,zone,dateadded,OMNIBSICid,password) VALUES('$name','$email','$contact','$membership','$zone','$dd', '$OMNIBSICid','$password')";
 
                 
                 // $query = mysqli_query($conn, "INSERT INTO users (name,email,password,dateadded) VALUES('$name','$email','$password','$dd')");

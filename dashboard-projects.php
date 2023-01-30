@@ -5,7 +5,7 @@
 <!-- Mirrored from coderthemes.com/hyper_2/modern/dashboard-projects.php by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 14 Nov 2022 09:18:09 GMT -->
 <head>
         <meta charset="utf-8" />
-        <title>Project Dashboard | GNACC -  </title>
+        <title>Project Dashboard | OMNIBSIC -  </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -40,7 +40,7 @@
                         <!-- Logo light -->
                         <a href="index-2.php" class="logo-light">
                             <span class="logo-lg">
-                                <img src="assets/images/logo.png" alt="logo" height="22">
+                                <img src="assets/images/omni.jpeg" alt="logo" height="22">
                             </span>
                             <span class="logo-sm">
                                 <img src="assets/images/logo-sm.png" alt="small logo" height="22">
@@ -439,7 +439,7 @@
                 <!-- Logo Light -->
                 <a href="index-2.php" class="logo logo-light">
                     <span class="logo-lg">
-                        <img src="assets/images/logo.png" alt="logo" height="22">
+                        <img src="assets/images/omni.jpeg" alt="logo" height="22">
                     </span>
                     <span class="logo-sm">
                         <img src="assets/images/logo-sm.png" alt="small logo" height="22">
@@ -1232,7 +1232,7 @@
                                 <div class="page-title-box">
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">GNACC</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">OMNIBSIC</a></li>
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
                                             <li class="breadcrumb-item active">Projects</li>
                                         </ol>
@@ -1560,7 +1560,7 @@
                                                         </td>
                                                         <td>
                                                             <span class="text-muted font-13">Project</span> <br/>
-                                                            <p class="mb-0">GNACC Mockup</p>
+                                                            <p class="mb-0">OMNIBSIC Mockup</p>
                                                         </td>
                                                         <td class="table-action" style="width: 50px;">
                                                             <div class="dropdown">
@@ -1589,7 +1589,7 @@
                                                         </td>
                                                         <td>
                                                             <span class="text-muted font-13">Project</span> <br/>
-                                                            <p class="mb-0">GNACC Mockup</p>
+                                                            <p class="mb-0">OMNIBSIC Mockup</p>
                                                         </td>
                                                         <td class="table-action" style="width: 50px;">
                                                             <div class="dropdown">
@@ -1670,7 +1670,7 @@
                                                                 <img class="me-2 rounded-circle" src="assets/images/users/avatar-5.jpg" width="40" alt="Generic placeholder image">
                                                                 <div>
                                                                     <h5 class="mt-0 mb-1">Francis Achin<small class="fw-normal ms-3">08 Jan 2019 12:28 pm</small></h5>
-                                                                    <span class="font-13">Assigned task "GNACC app design"...</span>
+                                                                    <span class="font-13">Assigned task "OMNIBSIC app design"...</span>
                                                                 </div>
                                                             </div>
                                                         </td>
@@ -1739,7 +1739,7 @@
                                                         <p class="text-muted mb-1 font-13">
                                                             <i class="mdi mdi-calendar"></i> 10:30 AM - 11:45 AM
                                                         </p>
-                                                        <h5>Design Review - GNACC Admin</h5>
+                                                        <h5>Design Review - OMNIBSIC Admin</h5>
                                                     </li>
                                                     <li class="mb-4">
                                                         <p class="text-muted mb-1 font-13">
@@ -1775,7 +1775,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6">
-                                <script>document.write(new Date().getFullYear())</script> © GNACC - Coderthemes.com
+                                <script>document.write(new Date().getFullYear())</script> © OMNIBSIC - Coderthemes.com
                             </div>
                             <div class="col-md-6">
                                 <div class="text-md-end footer-links d-none d-md-block">

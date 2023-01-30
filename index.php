@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Log In | GNACC -  </title>
+    <title>Log In | OMNIBSIC -  </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -37,7 +37,7 @@
                         <!-- Logo -->
                         <div class="card-header pt-4 pb-4 text-center bg-primary">
                             <a href="index-2.php">
-                                <span><img src="assets/images/logo.png" alt="logo" height="40"></span>
+                                <span><img src="assets/images/omni.jpeg" alt="logo" height="40"></span>
                             </a>
                         </div>
 
@@ -100,7 +100,7 @@
     <footer class="footer footer-alt">
         2021 - <script>
             document.write(new Date().getFullYear())
-        </script> © GNACC
+        </script> © OMNIBSIC
     </footer>
     <!-- Vendor js -->
     <script src="assets/js/vendor.min.js"></script>

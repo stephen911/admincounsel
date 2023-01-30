@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Register | GNACC -  </title>
+    <title>Register | OMNIBSIC -  </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -37,14 +37,14 @@
                         <!-- Logo-->
                         <div class="card-header pt-4 pb-4 text-center bg-primary">
                             <a href="index-2.php">
-                                <span><img src="assets/images/logo.png" alt="logo" height="40"></span>
+                                <span><img src="assets/images/omni.jpeg" alt="logo" height="40"></span>
                             </a>
                         </div>
 
                         <div class="card-body p-4">
 
                             <div class="text-center w-75 m-auto">
-                                <h4 class="text-dark-50 text-center mt-0 fw-bold">GNACC Membership Registration</h4>
+                                <h4 class="text-dark-50 text-center mt-0 fw-bold">OMNIBSIC Membership Registration</h4>
                                 <p class="text-muted mb-4">Don't have an account? Create your account, it takes a few minutes </p>
                             </div>
 
@@ -279,7 +279,7 @@
                                             <label for="example-select" class="form-label">How did you hear/Know of this association</label>
                                             <select class="form-select" id="example-select" name="heard">
                                                 <option selected></option>
-                                                <option>GNACC Website</option>
+                                                <option>OMNIBSIC Website</option>
                                                 <option>Facebook</option>
                                                 <option>WhatsApp</option>
                                                 <option>Instagram</option>
@@ -359,7 +359,7 @@
     <footer class="footer footer-alt">
         2021 - <script>
             document.write(new Date().getFullYear())
-        </script> © GNACC
+        </script> © OMNIBSIC
     </footer>
 
     <!-- Vendor js -->

@@ -1,21 +1,13 @@
 <?php
 include 'functions.php';
-include 'yolkpay.php';
-$yolk = new YolkPay();
+// header("Refresh:5");
+// include 'yolkpay.php';
+// $yolk = new YolkPay();
+
 checker();
-$user = upmembers();
+$user = adminmembers();
 //  var_dump($_SESSION['id']);
-
-// if (isset($_POST['btnupdate'])) {
-//     extract($_POST);
-//     updateuser($id, $title, $name, $gender, $email, $contact, $telegram, $lincesed, $nameofschool, $region, $district, $foodpref, $heard);
-// }
-
-// // Yolk mailer
-// $mail = new Mail();
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en" data-layout-mode="detached" data-topbar-color="dark" data-sidenav-color="light" data-sidenav-user="true">
 
@@ -24,22 +16,19 @@ $user = upmembers();
 
 <head>
     <meta charset="utf-8" />
-    <title>Profile | OMNIBSIC - Payment</title>
+    <title>Dashboard | OMNIBSIC - Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon2.ico">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
 
     <!-- Theme Config Js -->
     <script src="assets/js/hyper-config.js"></script>
 
     <!-- Icons css -->
     <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-
-    <!-- sweetalert -->
-    <link type="text/css" href="assets/css/sweetalert2.min.css" rel="stylesheet">
 
     <!-- App css -->
     <link href="assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="app-style" />
@@ -57,22 +46,22 @@ $user = upmembers();
         <div class="leftside-menu">
 
             <!-- Logo Light -->
-            <a href="dashboard.php" class="logo logo-light">
+            <a href="index-2.php" class="logo logo-light">
                 <span class="logo-lg">
                     <img src="assets/images/omni.jpeg" alt="logo" height="22">
                 </span>
                 <span class="logo-sm">
-                    <img src="assets/images/omni.jpeg" alt="small logo" height="22">
+                    <img src="assets/images/logo-sm.png" alt="small logo" height="22">
                 </span>
             </a>
 
             <!-- Logo Dark -->
-            <a href="dashboard.php" class="logo logo-dark">
+            <a href="index-2.php" class="logo logo-dark">
                 <span class="logo-lg">
-                    <img src="assets/images/omni.jpeg" alt="dark logo" height="22">
+                    <img src="assets/images/logo-dark.png" alt="dark logo" height="22">
                 </span>
                 <span class="logo-sm">
-                    <img src="assets/images/omni.jpeg" alt="small logo" height="22">
+                    <img src="assets/images/logo-dark-sm.png" alt="small logo" height="22">
                 </span>
             </a>
 
@@ -86,8 +75,8 @@ $user = upmembers();
                 <!-- Leftbar User -->
                 <div class="leftbar-user">
                     <a href="#">
-                        <img src="uploads/<?php echo $user['passport']; ?>" alt="user-image" height="42" class="rounded-circle shadow-sm">
-                        <span class="leftbar-user-name"><strong><?php echo $user['name']; ?></strong></span>
+                        <img src="assets/images/omni.jpeg" alt="user-image" height="42" class="rounded-circle shadow-sm">
+                        <span class="leftbar-user-name"><strong><?php echo $user['first_name']; ?></strong></span>
                     </a>
                 </div>
 
@@ -129,123 +118,306 @@ $user = upmembers();
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="#">OMNIBSIC</a></li>
-                                        <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                                        <li class="breadcrumb-item active">Payment</li>
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">OMNIBSIC</a></li>
+                                        <!-- <li class="breadcrumb-item"><a href="javascript: void(0);">Dash</a></li> -->
+                                        <li class="breadcrumb-item active">Dashboard</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Payment</h4>
+                                <h4 class="page-title">Dashboard</h4>
                             </div>
                         </div>
                     </div>
                     <!-- end page title -->
 
-
-
-                    <!-- Form row -->
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Payment </h4>
+                                    <h4 class="header-title">Edit Info</h4>
                                     <p class="text-muted font-14">
-                                        Add Payment Info
+                                        Edit Your Info
                                     </p>
 
-                                    <!-- <ul class="nav nav-tabs nav-bordered mb-3">
-                                        <li class="nav-item">
-                                            <a href="#form-row-preview" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">
-                                                Preview
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#form-row-code" data-bs-toggle="tab" aria-expanded="true" class="nav-link">
-                                                Code
-                                            </a>
-                                        </li>
-                                    </ul>  -->
-                                    <!-- end nav -->
+
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="form-row-preview">
-                                            <form action="dashboard.php" novalidate method="get" class="pay" enctype='multipart/form-data'>
-                                              
-                                                
+                                            <form action="" novalidate method="get" class="spec" enctype='multipart/form-data'>
+                                               
 
                                                 <div class="mb-3">
-                                                    <label for="emailaddress" class="form-label">Name</label>
-                                                    <input class="form-control" type="text" id="name" required placeholder="Enter your phone Number" name="name" value="<?php echo ($user['name'] == '') ? '' : $user['name']; ?>">
+                                                    <!-- <label for="emailaddress" class="form-label">Name</label>
+                                                    <input class="form-control" type="text" id="name" required placeholder="Enter Staff's Name" name="name" > -->
+                                                    <input id="email" type="hidden" placeholder="" value="<?php echo  $user['id']; ?>" class="form-control" name="id">
                                                 </div>
 
-                                                <div class="mb-3">
-                                                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-
-                                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email"  value="<?php echo ($user['email'] == '') ? '' : $user['email']; ?>">
-                                                    <input id="email" type="hidden" placeholder="Name to be shown on Certificate" value="<?php echo  $user['id']; ?>" class="form-control" name="id">
-
-                                                    <!-- <small id="emailHelp" class="form-text text-muted">Please make sur you remember the password to the email you are providing</small> -->
-                                                </div>
-
-
-<div class="mb-3">
-                                                    <label for="example-select" class="form-label">Counsellor Membership Type</label>
-                                                    <select class="form-select" id="student-select" name="membership">
-                                                    <option selected value="<?php echo ($user['membership'] == '') ? '' : $user['membership']; ?>"><?php echo ($user['membership'] == '') ? 'Select Membership' : $user['membership']; ?></option>
-
-                                                        <option value="250">Certificated Counsellor</option>
-                                                        <option value="300">Associate Counsellor</option>
-
-
-                                                        <option value="150">Student - Counsellor</option>
-                                                        <option value="150">Renewal</option>
-
-
-
-
-                                                    </select>
-                                                </div>
-
+                                             
                                                 <!-- <div class="mb-3">
-                                                    <label for="example-select" class="form-label">How did you hear/Know of this association</label>
-                                                    <select class="form-select" id="example-select" name="heard">
-                                                        <option selected></option>
-                                                        <option>OMNIBSIC Website</option>
-                                                        <option>Facebook</option>
-                                                        <option>WhatsApp</option>
-                                                        <option>Instagram</option>
-                                                        <option>Friend</option>
-                                                        <option>News Papers</option>
-                                                        <option>TUCEE Institute of Counselling and Technology Website</option>
-
-
-                                                    </select>
+                                                    <label for="emailaddress" class="form-label">Phone Number</label>
+                                                    <input class="form-control" type="text" id="name" required placeholder="Enter Staff's Phone Number" name="contact" >
                                                 </div> -->
 
+                                                <div class="mb-3">
+                                                    <label for="example-select" class="form-label">Beneficiary's Name</label>
+                                                    <select class="form-select" id="example-select" name="bene">
+                                                        
+                                                    
+                                                        <?php getbene_spec() ?>
 
-                                                
-
+                                                    </select>
+                                                </div> 
 
 
                                                 <!-- <div class="mb-3">
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="checkbox-signup">
-                                        <label class="form-check-label" for="checkbox-signup">I accept <a href="#" class="text-muted">Terms and Conditions</a></label>
-                                    </div>
-                                </div> -->
+                                                    <label for="emailaddress" class="form-label">Pin</label>
+                                                    <input class="form-control" type="text" id="pin" required placeholder="Enter Staff's Pin" name="pin" >
+                                                </div> -->
 
-                                                <div class="mb-3 text-center">
-                                                    <button class="btn btn-primary" type="submit"> Add Payment </button>
+                                                
+
+                                               
+                                        </div>
+
+                                       
+
+
+
+
+
+
+                                    
+
+                                        <div class="mb-3 text-center">
+                                            <button class="btn btn-primary" name="btnupdate" type="submit"> Display </button>
+                                        </div>
+
+                                        </form>
+                                    </div> <!-- end preview-->
+
+                                    <!-- end preview code-->
+                                </div> <!-- end tab-content-->
+
+                            </div> <!-- end card-body -->
+                        </div> <!-- end card-->
+                    </div> <!-- end col -->
+                </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <!-- Profile -->
+                            <div class="card bg-primary">
+                                <div class="card-body profile-user-box">
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <div class="row align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="avatar-lg">
+                                                        <img src="assets/images/omni.jpeg" alt="" class="rounded-circle img-thumbnail">
+                                                    </div>
                                                 </div>
+                                                <div class="col">
+                                                    <div>
+                                                        <h4 class="mt-1 mb-1 text-white"><?php 
+                                                        
+                                                        if (isset($_GET['btnupdate'])) {
+                                                            echo  $_GET['bene'];
+                                                        }else{
+                                                            echo  $user['first_name'];
 
-                                            </form>
-                                        </div> <!-- end preview-->
+                                                        }
+                                                        
+                                                         ?></h4>
+                                                        <!-- <p class="font-13 text-white-50"> <//?php echo $user['email']; ?></p> -->
 
-                                        <!-- end preview code-->
-                                    </div> <!-- end tab-content-->
+                                                        <ul class="mb-0 list-inline text-light">
+                                                        <?php
+                                    // if (isset($_POST['btnupdate'])) {
+                                    //     ssfoodstats($_POST['bene']);
+                                    // } else {
+                                    //     echo '<h4 class="card-title">District Statistics</h4>';
+                                    // }
 
-                                </div> <!-- end card-body -->
-                            </div> <!-- end card-->
-                        </div> <!-- end col -->
+                                    ?>
+                                                            
+                                                            
+                                                        </ul>
+
+                                                        
+
+                                                        <ul class="mb-0 list-inline text-light">
+                                                            <li class="list-inline-item me-3">
+                                                                <h5 class="mb-1 text-white"><?php 
+                                                                if (isset($_GET['btnupdate'])) {
+                                                                    echo totalstatus_spec($_GET['bene']); 
+                                                                   echo ' <p class="mb-0 font-13 text-white-50">Number of Donors</p>'; 
+                                                                }else{
+                                                                    
+                                                                    echo '<h5 class="mb-1 text-white">0</h5>'; 
+                                                                   echo ' <p class="mb-0 font-13 text-white-50">Number of Donors</p>'; 
+        
+                                                                }
+                                                                
+                                                                
+                                                                 ?></h5>
+                                                                
+                                                            </li>
+                                                            <li class="list-inline-item">
+
+                                                            
+
+
+                                                                <h5 class="mb-1 text-white"><?php 
+
+if (isset($_GET['btnupdate'])) {
+    echo countmembers_spec($_GET['bene']); 
+   echo ' <p class="mb-0 font-13 text-white-50">Total Amount</p>'; 
+}else{
+    
+    echo '<h5 class="mb-1 text-white">GHS 0</h5>'; 
+   echo ' <p class="mb-0 font-13 text-white-50">Total Amount</p>'; 
+
+}
+
+                                                                
+                                                                
+                                                                
+                                                               ?></h5>
+                                                              
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> <!-- end col-->
+
+                                        <div class="col-sm-4">
+                                            <!-- <div class="text-center mt-sm-0 mt-3 text-sm-end">
+                                                    <a href="edit.php" class="btn btn-light">
+                                                        <i class="mdi mdi-account-edit me-1"></i> Edit Profile
+                                                    </a>
+                                                </div>
+                                            </div>  -->
+                                            <!-- end col-->
+                                        </div> <!-- end row -->
+
+                                    </div> <!-- end card-body/ profile-user-box-->
+                                </div>
+                                <!--end profile/ card -->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- end row -->
+
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="card tilebox-one">
+                                    <div class="card-body">
+                                        <i class="ri-shopping-basket-2-line float-end text-muted"></i>
+                                        <h6 class="text-muted text-uppercase mt-0">Total</h6>
+                                        <h2 class="m-b-20"><?php 
+                                        
+                                        if (isset($_GET['btnupdate'])) {
+                                            echo countmembers_spec($_GET['bene']); 
+                                            
+                                        }else{
+                                            
+                                            echo 'GHS 0'; 
+                                          
+                                        
+                                        }
+                                        
+                                        
+                                        ?></h2>
+                                        <!-- <span class="badge bg-primary"> +11% </span> <span class="text-muted">From previous period</span> -->
+                                    </div> <!-- end card-body-->
+                                </div>
+                                <!--end card-->
+                            </div><!-- end col -->
+
+                            <div class="col-sm-4">
+                                <div class="card tilebox-one">
+                                    <div class="card-body">
+                                        <i class="ri-shopping-basket-2-line float-end text-muted"></i>
+                                        <h6 class="text-muted text-uppercase mt-0">Staff</h6>
+                                        <h2 class="m-b-20"><?php echo totalstaff() ?></h2>
+                                        <!-- <span class="badge bg-primary"> +11% </span> <span class="text-muted">From previous period</span> -->
+                                    </div> <!-- end card-body-->
+                                </div>
+                                <!--end card-->
+                            </div><!-- end col -->
+
+                            <div class="col-sm-4">
+                                <div class="card tilebox-one">
+                                    <div class="card-body">
+                                        <i class="ri-shopping-basket-2-line float-end text-muted"></i>
+                                        <h6 class="text-muted text-uppercase mt-0">Beneficiary's Name</h6>
+                                        <h2 class="m-b-20"><?php 
+                                        
+                                        if (isset($_GET['btnupdate'])) {
+                                            echo $_GET['bene'];
+                                            
+                                        }else{
+                                            
+                                            echo  "None";
+                                          
+                                        
+                                        }
+                                        
+                                       ?></h2>
+                                        <!-- <span class="badge bg-primary"> +11% </span> <span class="text-muted">From previous period</span> -->
+                                    </div> <!-- end card-body-->
+                                </div>
+                                <!--end card-->
+                            </div><!-- end col -->
+
+    
+
+                            
+
+                        </div>
+
+                      
+
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h4 class="header-title">Statistics</h4>
+
+                            </div>
+
+                            <?php 
+                            if (isset($_GET['btnupdate'])) {
+                                echo showdonors_spec($_GET['bene']);
+                                
+                            }else{
+                                
+                                echo  '<div class="border border-light p-3 rounded mb-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <p class="font-18 mb-1"> Select Beneficiary to Display Results</p>
+                                        
+                                    </div>
+                                    
+
+                                    <div class="avatar-sm">
+                                        <span class="avatar-title bg-sucsess rounded-circle h3 my-0">
+                                            <i class="mdi mdi-account-multiple"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>';
+                              
+                            
+                            }
+                            
+                            
+                             ?>
+
+                        </div>
                     </div>
+
+
+
+
+
                     <!-- end row -->
 
                 </div> <!-- container -->
@@ -766,15 +938,8 @@ $user = upmembers();
     <!-- Profile Demo App js -->
     <script src="assets/js/pages/demo.profile.js"></script>
 
-    <script src="assets/js/sweetalert2.all.min.js"></script>
-    <!-- <script src="assets/js/regions.js"></script>
-
-    <script src="assets/js/view.js"></script> -->
-
     <!-- App js -->
     <script src="assets/js/app.min.js"></script>
-    <script src="processor.js"></script>
-
 
 </body>
 

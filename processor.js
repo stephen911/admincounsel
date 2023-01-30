@@ -152,7 +152,7 @@ $(function () {
           swal.showLoading();
         },
       }).then(function (result) {
-        window.location = "users.php";
+        // window.location = "users.php";
       });
     } else if (response == "pointsadded") {
       swal({
@@ -193,6 +193,32 @@ $(function () {
       }).then(function (result) {
         // window.location = "users.php";
       });
+    } else if (response == "beneadded") {
+      swal({
+        title: "Success",
+        text: "Beneficiary added Successfully",
+        timer: 1000,
+        type: "success",
+        padding: "2em",
+        onOpen: function () {
+          swal.showLoading();
+        },
+      }).then(function (result) {
+        // window.location = "users.php";
+      });
+    } else if (response == "staffadded") {
+      swal({
+        title: "Success",
+        text: "Staff added Successfully",
+        timer: 1000,
+        type: "success",
+        padding: "2em",
+        onOpen: function () {
+          swal.showLoading();
+        },
+      }).then(function (result) {
+        // window.location = "users.php";
+      });
     } else if (response == "attended") {
       swal({
         title: "Success",
@@ -217,7 +243,7 @@ $(function () {
           swal.showLoading();
         },
       }).then(function (result) {
-        window.location = "users.php";
+        window.location = "staff.php";
       });
     } else if (response == "loginfailed") {
       swal({
@@ -281,6 +307,23 @@ $(function () {
     $.ajax(staff);
   });
 
+  $(".updatestaff").submit(function (e) {
+    e.preventDefault();
+    // before();
+    // var id = $(this).attr('id');
+    var staff = {
+      url: "processor.php?action=updatestaff",
+      type: "post",
+      data: new FormData(this),
+      cache: false,
+      contentType: false,
+      processData: false,
+      beforeSend: before,
+      success: resp,
+    };
+    $.ajax(staff);
+  });
+
 
   $(".pay").submit(function (e) {
     e.preventDefault();
@@ -318,22 +361,22 @@ $(function () {
     $.ajax(staff);
   });
 
-  $(".show").submit(function (e) {
-    e.preventDefault();
-    // before();
-    // var id = $(this).attr('id');
-    var staff = {
-      url: "processor.php?action=show",
-      type: "post",
-      data: new FormData(this),
-      cache: false,
-      contentType: false,
-      processData: false,
-      beforeSend: before,
-      success: resp,
-    };
-    $.ajax(staff);
-  });
+  // $(".show").submit(function (e) {
+  //   e.preventDefault();
+  //   // before();
+  //   // var id = $(this).attr('id');
+  //   var staff = {
+  //     url: "processor.php?action=show",
+  //     type: "post",
+  //     data: new FormData(this),
+  //     cache: false,
+  //     contentType: false,
+  //     processData: false,
+  //     beforeSend: before,
+  //     success: resp,
+  //   };
+  //   $.ajax(staff);
+  // });
 
   $(".showquiz").submit(function (e) {
     e.preventDefault();
@@ -472,6 +515,42 @@ $(function () {
     };
     $.ajax(staff);
   });
+
+
+  $(".bene").submit(function (e) {
+    e.preventDefault();
+    // before();
+    // var id = $(this).attr('id');
+    var staff = {
+      url: "processor.php?action=bene",
+      type: "post",
+      data: new FormData(this),
+      cache: false,
+      contentType: false,
+      processData: false,
+      beforeSend: before,
+      success: resp,
+    };
+    $.ajax(staff);
+  });
+
+  $(".staff").submit(function (e) {
+    e.preventDefault();
+    // before();
+    // var id = $(this).attr('id');
+    var staff = {
+      url: "processor.php?action=staff",
+      type: "post",
+      data: new FormData(this),
+      cache: false,
+      contentType: false,
+      processData: false,
+      beforeSend: before,
+      success: resp,
+    };
+    $.ajax(staff);
+  });
+
 
   $(document).on("click", ".attend", function (e) {
     e.preventDefault();

@@ -5,7 +5,7 @@
 <!-- Mirrored from coderthemes.com/hyper_2/modern/widgets.php by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 14 Nov 2022 09:19:32 GMT -->
 <head>
         <meta charset="utf-8" />
-        <title>Widgets | GNACC -  </title>
+        <title>Widgets | OMNIBSIC -  </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -37,7 +37,7 @@
                         <!-- Logo light -->
                         <a href="index-2.php" class="logo-light">
                             <span class="logo-lg">
-                                <img src="assets/images/logo.png" alt="logo" height="22">
+                                <img src="assets/images/omni.jpeg" alt="logo" height="22">
                             </span>
                             <span class="logo-sm">
                                 <img src="assets/images/logo-sm.png" alt="small logo" height="22">
@@ -436,7 +436,7 @@
                 <!-- Logo Light -->
                 <a href="index-2.php" class="logo logo-light">
                     <span class="logo-lg">
-                        <img src="assets/images/logo.png" alt="logo" height="22">
+                        <img src="assets/images/omni.jpeg" alt="logo" height="22">
                     </span>
                     <span class="logo-sm">
                         <img src="assets/images/logo-sm.png" alt="small logo" height="22">
@@ -1229,7 +1229,7 @@
                                 <div class="page-title-box">
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">GNACC</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">OMNIBSIC</a></li>
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Components</a></li>
                                             <li class="breadcrumb-item active">Widgets</li>
                                         </ol>
@@ -1728,7 +1728,7 @@
                                                 <i class="mdi mdi-upload bg-info-lighten text-info timeline-icon"></i>
                                                 <div class="timeline-item-info">
                                                     <a href="#" class="text-info fw-bold mb-1 d-block">You sold an item</a>
-                                                    <small>Paul Burgess just purchased “GNACC - Admin Dashboard”!</small>
+                                                    <small>Paul Burgess just purchased “OMNIBSIC - Admin Dashboard”!</small>
                                                     <p class="mb-0 pb-2">
                                                         <small class="text-muted">5 minutes ago</small>
                                                     </p>
@@ -1804,7 +1804,7 @@
                                                 <i class="mdi mdi-arrow-collapse-up text-danger font-18"></i>
                                             </div>
                                             <div class="col ps-0">
-                                                <a href="javascript:void(0);" class="text-body">Purchased GNACC Admin Template</a>
+                                                <a href="javascript:void(0);" class="text-body">Purchased OMNIBSIC Admin Template</a>
                                                 <p class="mb-0 text-muted"><small>Today</small></p>
                                             </div>
                                             <div class="col-auto">
@@ -2042,7 +2042,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6">
-                                <script>document.write(new Date().getFullYear())</script> © GNACC - Coderthemes.com
+                                <script>document.write(new Date().getFullYear())</script> © OMNIBSIC - Coderthemes.com
                             </div>
                             <div class="col-md-6">
                                 <div class="text-md-end footer-links d-none d-md-block">

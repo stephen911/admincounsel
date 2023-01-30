@@ -7,20 +7,20 @@
                         <!-- Logo light -->
                         <a href="#" class="logo-light">
                             <span class="logo-lg">
-                                <img src="assets/images/logo.png" alt="logo" height="32">
+                                <img src="assets/images/omni.jpeg" alt="logo" height="32">
                             </span>
                             <span class="logo-sm">
-                                <img src="assets/images/logo.png" alt="small logo" height="22">
+                                <img src="assets/images/omni.jpeg" alt="small logo" height="22">
                             </span>
                         </a>
 
                         <!-- Logo Dark -->
                         <a href="#" class="logo-dark">
                             <span class="logo-lg">
-                                <img src="assets/images/logo.png" alt="dark logo" height="22">
+                                <img src="assets/images/omni.jpeg" alt="dark logo" height="22">
                             </span>
                             <span class="logo-sm">
-                                <img src="assets/images/logo.png" alt="small logo" height="22">
+                                <img src="assets/images/omni.jpeg" alt="small logo" height="22">
                             </span>
                         </a>
                     </div>
@@ -79,10 +79,10 @@
                             <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                                 aria-expanded="false">
                                 <span class="account-user-avatar"> 
-                                    <img src="assets/images/logo.png" alt="user-image" class="rounded-circle">
+                                    <img src="assets/images/omni.jpeg" alt="user-image" class="rounded-circle">
                                 </span>
                                 <span>
-                                    <span class="account-user-name"><?php echo $user['name'] ; ?></span>
+                                    <span class="account-user-name"><?php echo $user['first_name'] ; ?></span>
                                     <span class="account-position"><?php echo $user['email'] ; ?></span>
                                 </span>
                             </a>

@@ -190,7 +190,7 @@ $user = adminmembers();
                                                         <ul class="mb-0 list-inline text-light">
                                                             <li class="list-inline-item me-3">
                                                                 <h5 class="mb-1 text-white"><?php echo totalstatus(); ?></h5>
-                                                                <p class="mb-0 font-13 text-white-50">Total Revenue</p>
+                                                                <p class="mb-0 font-13 text-white-50">Total Number</p>
                                                             </li>
                                                             <li class="list-inline-item">
                                                                 <h5 class="mb-1 text-white"><?php echo countmembers() ?></h5>
@@ -245,32 +245,30 @@ $user = adminmembers();
 
                                                     echo '<tr>
                             <th>ID</th>
-                            <th>Donor Name</th>
                             <th>Staff Name</th>
+                            <th>Username</th>
+                            
                             <th>Contact</th>
-                            <th>Payment Method</th>
-                            <th>Currency</th>
-                            <th>Amount</th>
-                            <th>Pay Date</th>
+                            <th>Beneficiary Name</th>
+                           
                             
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>';
-                                                    echo registered();
+                                                    echo staff();
                                                     echo '
                     </tbody>
                     <tfoot>
                         <tr>
                         <th>ID</th>
-                        <th>Donor Name</th>
+                        
                         <th>Staff Name</th>
+                        <th>Username</th>
                         <th>Contact</th>
-                        <th>Payment Method</th>
-                        <th>Currency</th>
-                        <th>Amount</th>
-                        <th>Pay Date</th>
+                        <th>Beneficiary Name</th>
+                        
                             <th>Edit</th>
                             <th>Delete</th>
                             

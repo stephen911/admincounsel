@@ -12,11 +12,24 @@ if (isset($_GET['action'])) {
 
             break;
 
+        case 'updatestaff':
+            extract($_POST);
+            // extract($_POST);
+            updatestaff($id, $name, $email, $contact, $pin, $bene);
+            break;
+
         case 'cfuser':
             extract($_POST);
             // extract($_POST);
             confirmuser($id, $confirmation);
 
+
+            break;
+
+        case 'spec':
+            extract($_POST);
+            // extract($_POST);
+            foodstats($bene);
 
             break;
 
@@ -39,6 +52,17 @@ if (isset($_GET['action'])) {
         case 'login':
             extract($_POST);
             login($email, $password);
+            break;
+
+        case 'bene':
+            extract($_POST);
+            register1($name, $contact);
+            break;
+
+        case 'staff':
+            extract($_POST);
+            addstaff($name, $contact, $bene, $pin);
+
             break;
 
         case 'register':
